@@ -315,16 +315,22 @@ function selectAnswer(answer) {
 
     /* 마지막 질문 */
 
-    if (
-        currentQuestion ===
-        questions.length - 1
-    ) {
+   if (
+       currentQuestion ===
+       questions.length - 1
+   ) {
 
-        showScreen(screens.result);
+       showScreen(screens.loading);
 
-        return;
+       setTimeout(() => {
 
-    }
+           showScreen(screens.result);
+
+       }, 2500);
+
+       return;
+
+}
 
 
     /* 다음 질문 */
