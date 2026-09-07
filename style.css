@@ -1,7 +1,3 @@
-/* ==========================================
-   기본 설정
-========================================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,15 +5,14 @@
 }
 
 html {
-    font-size: 16px;
+    min-height: 100%;
+    background: #f5eee7;
 }
 
 body {
     min-height: 100vh;
-
     background: #f5eee7;
-
-    color: #4d4039;
+    color: #51433c;
 
     font-family:
         -apple-system,
@@ -25,15 +20,13 @@ body {
         "Apple SD Gothic Neo",
         "Noto Sans KR",
         sans-serif;
+
+    -webkit-font-smoothing: antialiased;
 }
 
-
-/* ==========================================
-   전체 앱
-
-   iPhone 15 기준
-   393px × 852px 화면을 중심으로 디자인
-========================================== */
+button {
+    font-family: inherit;
+}
 
 .app {
     position: relative;
@@ -41,6 +34,7 @@ body {
     width: 100%;
     max-width: 430px;
     min-height: 100vh;
+    min-height: 100dvh;
 
     margin: 0 auto;
 
@@ -50,36 +44,34 @@ body {
 }
 
 
-/* ==========================================
-   각 화면
-========================================== */
+/* =========================
+   화면
+========================= */
 
 .screen {
     position: absolute;
 
     inset: 0;
 
-    min-height: 100vh;
-
     display: none;
 
-    padding:
-        32px 24px;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
 
-    opacity: 0;
+    padding:
+        calc(32px + env(safe-area-inset-top))
+        24px
+        calc(32px + env(safe-area-inset-bottom));
 }
 
 .screen.active {
     display: flex;
 
-    animation: screenIn 0.5s ease forwards;
+    animation: pageIn 0.5s ease both;
 }
 
-
-/* 화면이 나타나는 애니메이션 */
-
-@keyframes screenIn {
-
+@keyframes pageIn {
     from {
         opacity: 0;
         transform: translateY(12px);
@@ -89,75 +81,58 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 
-/* ==========================================
-   공통 텍스트
-========================================== */
+/* =========================
+   공통
+========================= */
 
-.small-label {
-    margin-bottom: 16px;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
+.eyebrow {
+    margin-bottom: 15px;
 
     color: #b58d86;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
 }
-
-.description {
-    margin-top: 20px;
-
-    font-size: 14px;
-    line-height: 1.8;
-
-    color: #8b7b73;
-}
-
-
-/* ==========================================
-   버튼
-========================================== */
 
 .main-button {
-
     width: 100%;
 
     padding: 17px 20px;
 
-    border: none;
-    border-radius: 18px;
+    border: 0;
+    border-radius: 17px;
 
-    background: #c98f91;
+    background: #c99092;
+    color: #fff;
 
-    color: white;
-
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(155, 104, 105, 0.15);
 
     cursor: pointer;
 
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-}
-
-.main-button:hover {
-    background: #bd8284;
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .main-button:active {
     transform: scale(0.97);
+    box-shadow: none;
 }
 
 
-/* ==========================================
+/* =========================
    시작 화면
-========================================== */
+========================= */
 
 #start-screen {
     align-items: center;
@@ -169,19 +144,25 @@ body {
 .start-content {
     width: 100%;
     max-width: 330px;
-
-    animation: floatIn 0.8s ease;
 }
 
 .start-content h1 {
+    color: #4d4039;
 
     font-size: 29px;
+    font-weight: 700;
+    line-height: 1.42;
 
-    line-height: 1.4;
+    letter-spacing: -1.3px;
+}
 
-    letter-spacing: -1.2px;
+.intro {
+    margin-top: 20px;
 
-    color: #493d37;
+    color: #8b7b73;
+
+    font-size: 13px;
+    line-height: 1.8;
 }
 
 .start-content .main-button {
@@ -189,177 +170,162 @@ body {
 }
 
 
-/* 시작 화면 등장 */
+/* =========================
+   장식
+========================= */
 
-@keyframes floatIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* ==========================================
-   작은 장식
-========================================== */
-
-.decoration {
+.floating-heart,
+.floating-star {
     position: absolute;
+
+    color: #d3a4a3;
 
     pointer-events: none;
 
-    color: #d7aaa9;
-
-    animation: decorationFloat 3s ease-in-out infinite;
+    animation: float 3.5s ease-in-out infinite;
 }
 
-.decoration-heart {
+.heart-1 {
     top: 19%;
-    left: 13%;
+    left: 12%;
 
-    font-size: 25px;
+    font-size: 27px;
 }
 
-.decoration-star {
-    right: 15%;
+.heart-2 {
+    right: 13%;
+    bottom: 22%;
+
+    font-size: 19px;
+
+    animation-delay: 1.2s;
+}
+
+.star-1 {
     top: 27%;
+    right: 18%;
 
-    font-size: 17px;
+    font-size: 16px;
 
-    animation-delay: 0.8s;
+    animation-delay: 0.6s;
 }
 
-
-@keyframes decorationFloat {
-
-    0%, 100% {
+@keyframes float {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-7px);
+        transform: translateY(-8px);
     }
-
 }
 
 
-/* ==========================================
+/* =========================
    질문 화면
-========================================== */
+========================= */
 
 #quiz-screen {
     flex-direction: column;
 
-    padding-top: 45px;
+    padding-top: calc(40px + env(safe-area-inset-top));
 }
 
-.quiz-header {
+.quiz-top {
     width: 100%;
 }
 
-.question-number {
-    margin-bottom: 12px;
+.question-info {
+    display: flex;
 
-    font-size: 11px;
-    font-weight: 700;
+    justify-content: space-between;
+    align-items: center;
 
-    letter-spacing: 2px;
+    margin-bottom: 11px;
 
     color: #b58d86;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
 }
 
+#question-count {
+    color: #a9968d;
+}
 
-/* 진행률 바 */
-
-.progress-bar {
-
+.progress-track {
     width: 100%;
-    height: 5px;
+    height: 4px;
 
     overflow: hidden;
 
     border-radius: 10px;
 
-    background: #e7dcd5;
+    background: #e6dcd5;
 }
 
 .progress {
-
     width: 20%;
     height: 100%;
 
     border-radius: inherit;
 
-    background: #c98f91;
+    background: #c99092;
 
     transition: width 0.4s ease;
 }
 
-
-/* 질문 내용 */
-
 .quiz-content {
-
     display: flex;
-
-    flex-direction: column;
 
     flex: 1;
 
+    flex-direction: column;
+
     justify-content: center;
+
+    padding-bottom: 5vh;
 }
 
 .quiz-content h2 {
+    margin-bottom: 31px;
 
-    margin-bottom: 35px;
+    color: #4d4039;
 
     font-size: 23px;
-
+    font-weight: 700;
     line-height: 1.5;
 
-    letter-spacing: -0.8px;
-
-    color: #493d37;
+    letter-spacing: -1px;
 }
 
-
-/* ==========================================
-   선택지
-========================================== */
-
 .answers {
-
     display: flex;
 
     flex-direction: column;
 
-    gap: 12px;
+    gap: 11px;
 }
 
 .answer-button {
-
     width: 100%;
 
     padding: 17px 18px;
 
-    border: 1px solid #e3d5cd;
-
+    border: 1px solid #e3d6ce;
     border-radius: 17px;
 
-    background: rgba(255, 252, 249, 0.8);
+    background: rgba(255, 252, 249, 0.85);
 
-    color: #665851;
+    color: #655750;
 
     text-align: left;
 
     font-size: 14px;
+    line-height: 1.4;
 
     cursor: pointer;
 
@@ -369,271 +335,239 @@ body {
         border-color 0.2s ease;
 }
 
-.answer-button:hover {
-
-    border-color: #cfa4a0;
-
-    background: #fffaf7;
-}
-
 .answer-button:active {
-
     transform: scale(0.98);
 
+    background: #fff9f5;
+}
+
+.answer-button:hover {
+    border-color: #cfa5a2;
 }
 
 
-/* ==========================================
+/* =========================
    함정 화면
-========================================== */
+========================= */
 
 #trap-screen {
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
 }
 
 .trap-content {
-
     width: 100%;
-
     max-width: 330px;
 }
 
-.trap-icon {
-
+.trap-circle {
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    width: 70px;
-    height: 70px;
+    width: 68px;
+    height: 68px;
 
     margin: 0 auto 28px;
 
     border-radius: 50%;
 
-    background: #ead5d1;
+    background: #ead8d3;
 
-    color: #b87d7c;
+    color: #b77e7e;
 
     font-size: 27px;
 
-    animation: heartBeat 1.8s ease-in-out infinite;
+    animation: heartbeat 1.8s ease-in-out infinite;
 }
 
-.trap-content h2 {
-
-    font-size: 25px;
-
-    line-height: 1.5;
-
-    letter-spacing: -1px;
-
-    color: #493d37;
-}
-
-.trap-description {
-
-    margin-top: 18px;
-
-    margin-bottom: 32px;
-
-    font-size: 14px;
-
-    color: #8b7b73;
-}
-
-
-@keyframes heartBeat {
-
-    0%, 100% {
+@keyframes heartbeat {
+    0%,
+    100% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.08);
+        transform: scale(1.07);
     }
+}
 
+.trap-content h2 {
+    color: #4d4039;
+
+    font-size: 25px;
+    line-height: 1.5;
+
+    letter-spacing: -1px;
+}
+
+.trap-description {
+    margin:
+        18px 0
+        31px;
+
+    color: #8b7b73;
+
+    font-size: 13px;
+    line-height: 1.7;
 }
 
 
-/* ==========================================
+/* =========================
    결과 화면
-========================================== */
+========================= */
 
 #result-screen {
-
     align-items: center;
-
     justify-content: center;
 
-    text-align: center;
-
     overflow-y: auto;
+
+    text-align: center;
 }
 
 .result-content {
-
     width: 100%;
-
     max-width: 330px;
 }
 
-.result-content h2 {
+.result-title {
+    color: #6f5e56;
 
-    font-size: 17px;
-
-    font-weight: 500;
-
+    font-size: 16px;
     line-height: 1.6;
-
-    color: #6e5c54;
 }
 
 .result-name {
-
-    margin-top: 5px;
-
-    font-size: 32px;
-
-    letter-spacing: -1.5px;
+    margin-top: 4px;
 
     color: #b8797d;
+
+    font-size: 32px;
+    line-height: 1.3;
+
+    letter-spacing: -1.5px;
 }
 
 .result-name span {
+    margin-left: 3px;
 
-    font-size: 19px;
+    color: #6f5e56;
 
+    font-size: 18px;
     font-weight: 500;
-
-    color: #6e5c54;
 }
 
 
-/* ==========================================
-   사진 자리
-========================================== */
+/* =========================
+   사진 영역
+========================= */
 
 .photo-placeholder {
-
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    width: 190px;
-    height: 220px;
+    width: 180px;
+    height: 210px;
 
-    margin: 28px auto;
+    margin: 27px auto;
 
-    border-radius: 24px;
-
-    border: 1px dashed #cdbbb3;
+    border: 1px dashed #cdbab1;
+    border-radius: 23px;
 
     background: #eee4dc;
 
     color: #a39188;
+}
 
-    font-size: 12px;
+.photo-placeholder p {
+    margin-top: 8px;
+
+    font-size: 11px;
+}
+
+.photo-icon {
+    display: block;
+
+    color: #bd8c8d;
+
+    font-size: 27px;
 }
 
 .result-message {
-
     margin-bottom: 25px;
 
-    font-size: 15px;
+    color: #6f5e56;
 
+    font-size: 14px;
     line-height: 1.7;
-
-    color: #6e5c54;
 }
 
 
-/* ==========================================
-   편지 화면
-========================================== */
+/* =========================
+   편지
+========================= */
 
-#letter-screen {
-
-    position: relative;
-
+.letter-screen {
     display: none;
-
-    min-height: 100vh;
 
     overflow-y: auto;
 
-    padding:
-        70px 27px
-        100px;
+    padding-top:
+        calc(65px + env(safe-area-inset-top));
+
+    padding-bottom:
+        calc(100px + env(safe-area-inset-bottom));
 }
 
-#letter-screen.active {
+.letter-screen.active {
     display: block;
-
-    animation: screenIn 0.6s ease forwards;
 }
 
 .letter-container {
-
     width: 100%;
-
     max-width: 350px;
 
     margin: 0 auto;
 }
 
 .letter-container h1 {
-
     margin-bottom: 45px;
 
-    font-size: 31px;
+    color: #4d4039;
 
+    font-size: 31px;
     line-height: 1.4;
 
     letter-spacing: -1.5px;
-
-    color: #493d37;
 }
 
-
-/* 편지 */
-
 .letter-text {
+    color: #665750;
 
     font-size: 15px;
-
-    line-height: 2.1;
+    line-height: 2.05;
 
     letter-spacing: -0.2px;
-
-    color: #665851;
 }
 
 .letter-text p {
-
     margin-bottom: 35px;
 
     opacity: 0;
 
     transform: translateY(18px);
 
-    animation: letterTextIn 0.8s ease forwards;
+    animation: letterAppear 0.8s ease forwards;
 }
 
-
-/*
-    각각의 문단이 조금씩 늦게 등장하도록 설정
-*/
-
 .letter-text p:nth-child(1) {
-    animation-delay: 0.3s;
+    animation-delay: 0.25s;
 }
 
 .letter-text p:nth-child(2) {
@@ -641,65 +575,73 @@ body {
 }
 
 .letter-text p:nth-child(3) {
-    animation-delay: 1.1s;
+    animation-delay: 1.15s;
 }
 
 .letter-text p:nth-child(4) {
-    animation-delay: 1.5s;
+    animation-delay: 1.6s;
 }
 
+.letter-text p:nth-child(5) {
+    animation-delay: 2.05s;
+}
 
-@keyframes letterTextIn {
-
+@keyframes letterAppear {
     from {
         opacity: 0;
-
-        transform:
-            translateY(18px);
+        transform: translateY(18px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
-
 }
 
+.letter-heart {
+    color: #c99092;
 
-/* 편지 마지막 */
+    font-size: 22px;
+
+    text-align: center;
+}
 
 .letter-end {
-
-    margin-top: 80px;
-
-    padding-top: 25px;
+    margin-top: 75px;
+    padding-top: 24px;
 
     border-top: 1px solid #dfd1ca;
 
-    text-align: right;
+    color: #948179;
 
-    color: #8b7b73;
+    text-align: right;
+}
+
+.letter-end span {
+    font-size: 12px;
 }
 
 .letter-end strong {
-
     display: block;
 
     margin-top: 5px;
 
-    font-size: 18px;
-
     color: #5d4c45;
+
+    font-size: 18px;
 }
 
 
-/* ==========================================
-   작은 화면 대응
-========================================== */
+/* =========================
+   작은 화면
+========================= */
 
 @media (max-width: 360px) {
+
+    .screen {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
     .start-content h1 {
         font-size: 26px;
