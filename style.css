@@ -200,15 +200,6 @@ button {
     animation-delay: 1.2s;
 }
 
-.heart-3 {
-    top: 27%;
-    right: 18%;
-
-    font-size: 16px;
-
-    animation-delay: 0.6s;
-}
-
 @keyframes float {
     0%,
     100% {
