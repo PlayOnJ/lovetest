@@ -156,6 +156,9 @@ const screens = {
     trap:
         document.getElementById("trap-screen"),
 
+    loading:
+        document.getElementById("loading-screen"),
+
     result:
         document.getElementById("result-screen"),
 
