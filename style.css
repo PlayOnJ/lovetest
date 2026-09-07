@@ -174,7 +174,8 @@ button {
    장식
 ========================= */
 
-.floating-heart {
+.floating-heart,
+.floating-star {
     position: absolute;
 
     color: #d3a4a3;
@@ -198,6 +199,15 @@ button {
     font-size: 19px;
 
     animation-delay: 1.2s;
+}
+
+.star-1 {
+    top: 27%;
+    right: 18%;
+
+    font-size: 16px;
+
+    animation-delay: 0.6s;
 }
 
 @keyframes float {
