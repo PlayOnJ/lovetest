@@ -85,30 +85,6 @@ const questions = [
 
 
     {
-        question: "좋아하는 사람과 가장 해보고 싶은 것은?",
-
-        answers: [
-            {
-                text: "같이 맛있는 음식 먹기"
-            },
-
-            {
-                text: "예쁜 곳에 놀러 가기"
-            },
-
-            {
-                text: "아무것도 안 하고 같이 있기"
-            },
-
-            {
-                text: "각자 알아서 살기",
-                trap: true
-            }
-        ]
-    },
-
-
-    {
         question: "좋은 연애에서 가장 중요하다고 생각하는 것은?",
 
         answers: [
@@ -126,6 +102,32 @@ const questions = [
 
             {
                 text: "굳이 만나지 않는 것",
+                trap: true
+            }
+        ]
+    },
+
+
+    {
+        question: "가장 완벽한 이상형의 키는?",
+
+        answers: [
+            {
+                text: "150" ,
+                trap: true
+            },
+
+            {
+                text: "160" ,
+                trap: true
+            },
+
+            {
+                text: "164.9"
+            },
+
+            {
+                text: "170",
                 trap: true
             }
         ]
