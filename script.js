@@ -83,24 +83,26 @@ const questions = [
 
 
     {
-        question: "좋아하는 사람과 가장 해보고 싶은 것은?",
+        question: "내가 생각하는 가장 완벽한 이상형의 키는?",
 
         answers: [
 
             {
-                text: "같이 맛있는 음식 먹기"
+                text: "150cm",
+                trap: true
             },
 
             {
-                text: "예쁜 곳에 놀러 가기"
+                text: "160cm",
+                trap: true
             },
 
             {
-                text: "아무것도 안 하고 같이 있기"
+                text: "164.8cm"
             },
 
             {
-                text: "각자 알아서 살기",
+                text: "170",
                 trap: true
             }
 
