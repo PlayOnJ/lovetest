@@ -82,32 +82,6 @@ const questions = [
     },
 
 
-    {
-        question: "내가 생각하는 가장 완벽한 이상형의 키는?",
-
-        answers: [
-
-            {
-                text: "150cm",
-                trap: true
-            },
-
-            {
-                text: "160cm",
-                trap: true
-            },
-
-            {
-                text: "164.8cm"
-            },
-
-            {
-                text: "170",
-                trap: true
-            }
-
-        ]
-    },
 
 
     {
@@ -133,8 +107,34 @@ const questions = [
             }
 
         ]
-    }
+    },
 
+    {
+        question: "내가 생각하는 가장 완벽한 이상형의 키는?",
+
+        answers: [
+
+            {
+                text: "150cm",
+                trap: true
+            },
+
+            {
+                text: "160cm",
+                trap: true
+            },
+
+            {
+                text: "164.8cm"
+            },
+
+            {
+                text: "170",
+                trap: true
+            }
+
+        ]
+    }
 ];
 
 
