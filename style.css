@@ -1,5 +1,10 @@
+/* ==========================================
+   기본 설정
+========================================== */
+
 * {
     box-sizing: border-box;
+
     margin: 0;
     padding: 0;
 }
@@ -7,6 +12,7 @@
 
 html {
     min-height: 100%;
+
     background: #f5eee7;
 }
 
@@ -34,10 +40,15 @@ button {
 }
 
 
+/* ==========================================
+   전체 모바일 영역
+========================================== */
+
 .app {
     position: relative;
 
     width: 100%;
+
     max-width: 430px;
 
     min-height: 100vh;
@@ -51,9 +62,9 @@ button {
 }
 
 
-/* =========================
-   화면
-========================= */
+/* ==========================================
+   화면 공통
+========================================== */
 
 .screen {
     position: absolute;
@@ -86,33 +97,24 @@ button {
 
     from {
         opacity: 0;
-        transform: translateY(12px);
+
+        transform:
+            translateY(12px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
 }
 
 
-/* =========================
-   공통
-========================= */
-
-.eyebrow {
-    margin-bottom: 15px;
-
-    color: #b58d86;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 2.5px;
-}
-
+/* ==========================================
+   공통 버튼
+========================================== */
 
 .main-button {
     width: 100%;
@@ -132,7 +134,8 @@ button {
     font-weight: 700;
 
     box-shadow:
-        0 8px 20px rgba(155, 104, 105, 0.15);
+        0 8px 20px
+        rgba(155, 104, 105, 0.15);
 
     cursor: pointer;
 
@@ -142,16 +145,36 @@ button {
 
 
 .main-button:active {
-    transform: scale(0.97);
+    transform:
+        scale(0.97);
 }
 
 
-/* =========================
+/* ==========================================
+   작은 제목
+========================================== */
+
+.eyebrow {
+    margin-bottom: 15px;
+
+    color: #b58d86;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+}
+
+
+/* ==========================================
    시작 화면
-========================= */
+========================================== */
 
 #start-screen {
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -160,6 +183,7 @@ button {
 
 .start-content {
     width: 100%;
+
     max-width: 330px;
 }
 
@@ -193,9 +217,9 @@ button {
 }
 
 
-/* =========================
-   하트
-========================= */
+/* ==========================================
+   떠다니는 하트
+========================================== */
 
 .floating-heart {
     position: absolute;
@@ -211,6 +235,7 @@ button {
 
 .heart-1 {
     top: 19%;
+
     left: 12%;
 
     font-size: 27px;
@@ -219,6 +244,7 @@ button {
 
 .heart-2 {
     right: 13%;
+
     bottom: 22%;
 
     font-size: 19px;
@@ -231,21 +257,24 @@ button {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     50% {
-        transform: translateY(-8px);
+        transform:
+            translateY(-8px);
     }
 
 }
 
 
-/* =========================
-   질문
-========================= */
+/* ==========================================
+   질문 화면
+========================================== */
 
 #quiz-screen {
+
     flex-direction: column;
 
     padding-top:
@@ -259,6 +288,7 @@ button {
 
 
 .question-info {
+
     display: flex;
 
     justify-content: space-between;
@@ -283,6 +313,7 @@ button {
 
 
 .progress-track {
+
     width: 100%;
 
     height: 4px;
@@ -296,6 +327,7 @@ button {
 
 
 .progress {
+
     width: 20%;
 
     height: 100%;
@@ -310,6 +342,7 @@ button {
 
 
 .quiz-content {
+
     display: flex;
 
     flex: 1;
@@ -323,6 +356,7 @@ button {
 
 
 .quiz-content h2 {
+
     margin-bottom: 31px;
 
     color: #4d4039;
@@ -338,6 +372,7 @@ button {
 
 
 .answers {
+
     display: flex;
 
     flex-direction: column;
@@ -347,6 +382,7 @@ button {
 
 
 .answer-button {
+
     width: 100%;
 
     padding: 17px 18px;
@@ -375,15 +411,18 @@ button {
 
 
 .answer-button:active {
-    transform: scale(0.98);
+
+    transform:
+        scale(0.98);
 }
 
 
-/* =========================
-   함정
-========================= */
+/* ==========================================
+   함정 화면
+========================================== */
 
 #trap-screen {
+
     align-items: center;
 
     justify-content: center;
@@ -393,6 +432,7 @@ button {
 
 
 .trap-content {
+
     width: 100%;
 
     max-width: 330px;
@@ -400,6 +440,7 @@ button {
 
 
 .trap-circle {
+
     display: flex;
 
     align-items: center;
@@ -430,17 +471,20 @@ button {
 
     0%,
     100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.07);
+        transform:
+            scale(1.07);
     }
 
 }
 
 
 .trap-content h2 {
+
     color: #4d4039;
 
     font-size: 25px;
@@ -450,6 +494,7 @@ button {
 
 
 .trap-description {
+
     margin:
         18px 0 31px;
 
@@ -461,11 +506,12 @@ button {
 }
 
 
-/* =========================
-   로딩
-========================= */
+/* ==========================================
+   로딩 화면
+========================================== */
 
 #loading-screen {
+
     align-items: center;
 
     justify-content: center;
@@ -475,6 +521,7 @@ button {
 
 
 .loading-content {
+
     width: 100%;
 
     max-width: 330px;
@@ -482,6 +529,7 @@ button {
 
 
 .loading-heart {
+
     display: flex;
 
     align-items: center;
@@ -512,17 +560,20 @@ button {
 
     0%,
     100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.12);
+        transform:
+            scale(1.12);
     }
 
 }
 
 
 .loading-content h2 {
+
     color: #4d4039;
 
     font-size: 22px;
@@ -532,6 +583,7 @@ button {
 
 
 .loading-dots {
+
     display: flex;
 
     justify-content: center;
@@ -543,6 +595,7 @@ button {
 
 
 .loading-dots span {
+
     width: 5px;
 
     height: 5px;
@@ -557,12 +610,16 @@ button {
 
 
 .loading-dots span:nth-child(2) {
-    animation-delay: 0.15s;
+
+    animation-delay:
+        0.15s;
 }
 
 
 .loading-dots span:nth-child(3) {
-    animation-delay: 0.3s;
+
+    animation-delay:
+        0.3s;
 }
 
 
@@ -571,25 +628,30 @@ button {
     0%,
     60%,
     100% {
+
         opacity: 0.3;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 
     30% {
+
         opacity: 1;
 
-        transform: translateY(-5px);
+        transform:
+            translateY(-5px);
     }
 
 }
 
 
-/* =========================
-   결과
-========================= */
+/* ==========================================
+   결과 화면
+========================================== */
 
 #result-screen {
+
     align-items: center;
 
     justify-content: center;
@@ -601,6 +663,7 @@ button {
 
 
 .result-content {
+
     width: 100%;
 
     max-width: 330px;
@@ -608,6 +671,7 @@ button {
 
 
 .result-title {
+
     color: #6f5e56;
 
     font-size: 16px;
@@ -617,6 +681,7 @@ button {
 
 
 .result-name {
+
     margin-top: 4px;
 
     color: #b8797d;
@@ -628,6 +693,7 @@ button {
 
 
 .result-name span {
+
     margin-left: 3px;
 
     color: #6f5e56;
@@ -639,6 +705,7 @@ button {
 
 
 .photo-placeholder {
+
     display: flex;
 
     align-items: center;
@@ -664,6 +731,7 @@ button {
 
 
 .photo-placeholder p {
+
     margin-top: 8px;
 
     font-size: 11px;
@@ -671,6 +739,7 @@ button {
 
 
 .photo-icon {
+
     display: block;
 
     color: #bd8c8d;
@@ -680,6 +749,7 @@ button {
 
 
 .result-message {
+
     margin-bottom: 25px;
 
     color: #6f5e56;
@@ -690,11 +760,12 @@ button {
 }
 
 
-/* =========================
+/* ==========================================
    편지
-========================= */
+========================================== */
 
 .letter-screen {
+
     display: none;
 
     overflow-y: auto;
@@ -708,11 +779,13 @@ button {
 
 
 .letter-screen.active {
+
     display: block;
 }
 
 
 .letter-container {
+
     width: 100%;
 
     max-width: 350px;
@@ -722,6 +795,7 @@ button {
 
 
 .letter-container h1 {
+
     margin-bottom: 45px;
 
     color: #4d4039;
@@ -733,6 +807,7 @@ button {
 
 
 .letter-text {
+
     color: #665750;
 
     font-size: 15px;
@@ -742,6 +817,7 @@ button {
 
 
 .letter-text p {
+
     margin-bottom: 35px;
 
     opacity: 0;
@@ -755,33 +831,44 @@ button {
 
 
 .letter-text p:nth-child(1) {
-    animation-delay: 0.25s;
+
+    animation-delay:
+        0.25s;
 }
 
 
 .letter-text p:nth-child(2) {
-    animation-delay: 0.7s;
+
+    animation-delay:
+        0.7s;
 }
 
 
 .letter-text p:nth-child(3) {
-    animation-delay: 1.15s;
+
+    animation-delay:
+        1.15s;
 }
 
 
 .letter-text p:nth-child(4) {
-    animation-delay: 1.6s;
+
+    animation-delay:
+        1.6s;
 }
 
 
 .letter-text p:nth-child(5) {
-    animation-delay: 2.05s;
+
+    animation-delay:
+        2.05s;
 }
 
 
 @keyframes letterAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -789,6 +876,7 @@ button {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -799,6 +887,7 @@ button {
 
 
 .letter-heart {
+
     color: #c99092;
 
     font-size: 22px;
@@ -808,6 +897,7 @@ button {
 
 
 .letter-next-button {
+
     margin-top: 5px;
 
     margin-bottom: 65px;
@@ -815,6 +905,7 @@ button {
 
 
 .letter-end {
+
     padding-top: 24px;
 
     border-top:
@@ -827,11 +918,13 @@ button {
 
 
 .letter-end span {
+
     font-size: 12px;
 }
 
 
 .letter-end strong {
+
     display: block;
 
     margin-top: 5px;
@@ -842,11 +935,12 @@ button {
 }
 
 
-/* =========================
+/* ==========================================
    선물 페이지
-========================= */
+========================================== */
 
 .gift-screen {
+
     align-items: center;
 
     justify-content: center;
@@ -858,6 +952,7 @@ button {
 
 
 .gift-container {
+
     position: relative;
 
     width: 100%;
@@ -876,9 +971,12 @@ button {
 }
 
 
-/* 질문 */
+/* ==========================================
+   선물 질문
+========================================== */
 
 .gift-question {
+
     position: absolute;
 
     top: 8%;
@@ -892,6 +990,7 @@ button {
 
 
 .gift-question h1 {
+
     color: #4d4039;
 
     font-size: 24px;
@@ -902,11 +1001,12 @@ button {
 }
 
 
-/* =========================
+/* ==========================================
    선물 사진
-========================= */
+========================================== */
 
 .gift-preview {
+
     display: flex;
 
     align-items: center;
@@ -920,11 +1020,12 @@ button {
     margin-top: 90px;
 
     transition:
-        opacity 0.5s ease;
+        opacity 0.6s ease;
 }
 
 
 .gift-photo {
+
     width: 102px;
 
     height: 125px;
@@ -936,15 +1037,13 @@ button {
     background: #eadfd7;
 
     box-shadow:
-        0 8px 20px rgba(100, 70, 60, 0.08);
-
-    transition:
-        transform 1s ease,
-        opacity 0.5s ease;
+        0 8px 20px
+        rgba(100, 70, 60, 0.08);
 }
 
 
 .gift-photo img {
+
     width: 100%;
 
     height: 100%;
@@ -953,18 +1052,19 @@ button {
 }
 
 
-/* =========================
-   선물 상자
-========================= */
+/* ==========================================
+   선물상자
+========================================== */
 
 .gift-boxes {
+
     display: flex;
 
-    align-items: flex-end;
+    align-items: center;
 
     justify-content: center;
 
-    gap: 20px;
+    gap: 14px;
 
     width: 100%;
 
@@ -972,17 +1072,20 @@ button {
 
     opacity: 0;
 
+    pointer-events: none;
+
     transition:
         opacity 0.6s ease;
 }
 
 
 .gift-box {
+
     position: relative;
 
-    width: 78px;
+    width: 100px;
 
-    height: 72px;
+    height: 100px;
 
     cursor: pointer;
 
@@ -991,65 +1094,154 @@ button {
 }
 
 
-.gift-box:hover {
-    transform: translateY(-5px);
+.gift-box img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    user-select: none;
 }
 
 
-.box-body {
-    position: absolute;
+.gift-box:active {
 
-    bottom: 0;
-
-    left: 7px;
-
-    width: 64px;
-
-    height: 48px;
-
-    border-radius: 5px;
-
-    background: #d5a19d;
-
-    box-shadow:
-        0 7px 12px rgba(120, 80, 75, 0.12);
+    transform:
+        scale(0.92);
 }
 
 
-.box-lid {
-    position: absolute;
+/* ==========================================
+   선물상자 섞기
+========================================== */
 
-    z-index: 2;
+.gift-boxes.shuffle
+.gift-box:nth-child(1) {
 
-    top: 10px;
-
-    left: 0;
-
-    width: 78px;
-
-    height: 22px;
-
-    border-radius: 5px;
-
-    background: #c88f91;
-
-    font-size: 21px;
-
-    line-height: 22px;
-
-    text-align: center;
-
-    transition:
-        transform 0.5s ease;
+    animation:
+        shuffleLeft 1.8s ease-in-out;
 }
 
 
-/* =========================
-   선택 문구
-========================= */
+.gift-boxes.shuffle
+.gift-box:nth-child(2) {
+
+    animation:
+        shuffleCenter 1.8s ease-in-out;
+}
+
+
+.gift-boxes.shuffle
+.gift-box:nth-child(3) {
+
+    animation:
+        shuffleRight 1.8s ease-in-out;
+}
+
+
+@keyframes shuffleLeft {
+
+    0% {
+        transform:
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            translateX(100px);
+    }
+
+    50% {
+        transform:
+            translateX(-100px);
+    }
+
+    75% {
+        transform:
+            translateX(60px);
+    }
+
+    100% {
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+@keyframes shuffleCenter {
+
+    0% {
+        transform:
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            translateX(-100px);
+    }
+
+    50% {
+        transform:
+            translateX(100px);
+    }
+
+    75% {
+        transform:
+            translateX(-60px);
+    }
+
+    100% {
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+@keyframes shuffleRight {
+
+    0% {
+        transform:
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            translateX(-100px);
+    }
+
+    50% {
+        transform:
+            translateX(100px);
+    }
+
+    75% {
+        transform:
+            translateX(-60px);
+    }
+
+    100% {
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* ==========================================
+   선택하세요
+========================================== */
 
 .gift-select-text {
-    margin-top: 28px;
+
+    margin-top: 24px;
 
     color: #a18c83;
 
@@ -1063,115 +1255,24 @@ button {
 
 
 .gift-select-text.show {
+
     opacity: 1;
 }
 
 
-/* =========================
-   섞기 애니메이션
-========================= */
+/* ==========================================
+   당첨 결과
 
-.gift-boxes.shuffle .gift-box:nth-child(1) {
-    animation:
-        shuffleLeft 1.8s ease-in-out;
-}
-
-
-.gift-boxes.shuffle .gift-box:nth-child(2) {
-    animation:
-        shuffleCenter 1.8s ease-in-out;
-}
-
-
-.gift-boxes.shuffle .gift-box:nth-child(3) {
-    animation:
-        shuffleRight 1.8s ease-in-out;
-}
-
-
-@keyframes shuffleLeft {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(100px);
-    }
-
-    50% {
-        transform: translateX(-100px);
-    }
-
-    75% {
-        transform: translateX(60px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-
-}
-
-
-@keyframes shuffleCenter {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-100px);
-    }
-
-    50% {
-        transform: translateX(100px);
-    }
-
-    75% {
-        transform: translateX(-60px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-
-}
-
-
-@keyframes shuffleRight {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-100px);
-    }
-
-    50% {
-        transform: translateX(100px);
-    }
-
-    75% {
-        transform: translateX(-60px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-
-}
-
-
-/* =========================
-   선물 결과
-========================= */
+   이전 화면과 완전히 분리해서 표시
+========================================== */
 
 .gift-result {
+
     position: absolute;
 
     inset: 0;
+
+    z-index: 20;
 
     display: flex;
 
@@ -1181,59 +1282,79 @@ button {
 
     justify-content: center;
 
-    padding: 30px 20px;
+    padding:
+        30px 20px;
+
+    background: #f5eee7;
 
     opacity: 0;
+
+    visibility: hidden;
 
     pointer-events: none;
 
     transform:
-        scale(0.92);
+        scale(0.94);
 
     transition:
         opacity 0.6s ease,
-        transform 0.6s ease;
+        transform 0.6s ease,
+        visibility 0s linear 0.6s;
 }
 
 
 .gift-result.show {
+
     opacity: 1;
+
+    visibility: visible;
 
     pointer-events: auto;
 
     transform:
         scale(1);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        visibility 0s;
 }
 
 
 .gift-result h2 {
+
+    margin-bottom: 25px;
+
     color: #4d4039;
 
     font-size: 21px;
 
-    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 
 .gift-result-image {
+
     width: 245px;
 
     height: 280px;
 
     overflow: hidden;
 
-    margin-bottom: 27px;
+    margin-bottom: 28px;
 
     border-radius: 23px;
 
     background: #eadfd7;
 
     box-shadow:
-        0 15px 35px rgba(100, 70, 60, 0.12);
+        0 15px 35px
+        rgba(100, 70, 60, 0.12);
 }
 
 
 .gift-result-image img {
+
     width: 100%;
 
     height: 100%;
@@ -1243,34 +1364,66 @@ button {
 
 
 .gift-result-message {
-    margin-bottom: 25px;
 
     color: #6f5e56;
 
     font-size: 14px;
 
-    line-height: 1.8;
+    line-height: 1.85;
 }
 
 
-.gift-result .main-button {
-    width: 55px;
+.gift-result-message strong {
 
-    height: 55px;
+    color: #b8797d;
 
-    padding: 0;
-
-    border-radius: 50%;
+    font-weight: 700;
 }
 
 
-/* =========================
+/* ==========================================
+   당첨 이미지 등장
+========================================== */
+
+.gift-result.show
+.gift-result-image {
+
+    animation:
+        giftReveal 0.7s ease 0.1s both;
+}
+
+
+@keyframes giftReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.75)
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* ==========================================
    작은 화면
-========================= */
+========================================== */
 
 @media (max-width: 360px) {
 
     .screen {
+
         padding-left: 20px;
 
         padding-right: 20px;
@@ -1278,29 +1431,42 @@ button {
 
 
     .start-content h1 {
+
         font-size: 26px;
     }
 
 
     .quiz-content h2 {
+
         font-size: 21px;
     }
 
 
     .result-name {
+
         font-size: 29px;
     }
 
 
     .gift-photo {
+
         width: 88px;
 
         height: 112px;
     }
 
 
+    .gift-box {
+
+        width: 88px;
+
+        height: 88px;
+    }
+
+
     .gift-boxes {
-        gap: 14px;
+
+        gap: 8px;
     }
 
 }
