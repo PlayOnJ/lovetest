@@ -129,7 +129,7 @@ const questions = [
             },
 
             {
-                text: "170",
+                text: "170cm",
                 trap: true
             }
 
