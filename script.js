@@ -1,5 +1,5 @@
 /* =====================================================
-   질문 설정
+   질문 데이터
 ===================================================== */
 
 const questions = [
@@ -8,6 +8,7 @@ const questions = [
         question: "연인과 함께 보내는 가장 좋은 주말은?",
 
         answers: [
+
             {
                 text: "맛있는 거 먹으러 가기"
             },
@@ -24,6 +25,7 @@ const questions = [
                 text: "혼자 집에서 쉬기",
                 trap: true
             }
+
         ]
     },
 
@@ -32,6 +34,7 @@ const questions = [
         question: "연인에게 가장 받고 싶은 것은?",
 
         answers: [
+
             {
                 text: "따뜻한 말 한마디"
             },
@@ -48,6 +51,7 @@ const questions = [
                 text: "아무것도 필요 없다",
                 trap: true
             }
+
         ]
     },
 
@@ -56,6 +60,7 @@ const questions = [
         question: "갑자기 하루의 시간이 생겼다면?",
 
         answers: [
+
             {
                 text: "맛있는 것을 먹으러 간다"
             },
@@ -72,6 +77,7 @@ const questions = [
                 text: "연락을 모두 끊는다",
                 trap: true
             }
+
         ]
     },
 
@@ -80,6 +86,7 @@ const questions = [
         question: "좋아하는 사람과 가장 해보고 싶은 것은?",
 
         answers: [
+
             {
                 text: "같이 맛있는 음식 먹기"
             },
@@ -96,6 +103,7 @@ const questions = [
                 text: "각자 알아서 살기",
                 trap: true
             }
+
         ]
     },
 
@@ -104,6 +112,7 @@ const questions = [
         question: "좋은 연애에서 가장 중요하다고 생각하는 것은?",
 
         answers: [
+
             {
                 text: "서로를 이해하는 것"
             },
@@ -120,6 +129,7 @@ const questions = [
                 text: "굳이 만나지 않는 것",
                 trap: true
             }
+
         ]
     }
 
@@ -127,13 +137,10 @@ const questions = [
 
 
 /* =====================================================
-   선물 설정
+   선물 데이터
 
-   나중에 사진 파일 이름만 맞춰주세요.
-
-   gift1.jpg
-   gift2.jpg
-   gift3.jpg
+   사진 파일 이름을 바꾸고 싶다면
+   여기만 수정하면 됨.
 ===================================================== */
 
 const gifts = [
@@ -154,7 +161,7 @@ const gifts = [
 
 
 /* =====================================================
-   현재 질문
+   현재 질문 번호
 ===================================================== */
 
 let currentQuestion = 0;
@@ -270,7 +277,11 @@ function showScreen(screen) {
 
     Object.values(screens).forEach(item => {
 
-        item.classList.remove("active");
+        if (item) {
+
+            item.classList.remove("active");
+
+        }
 
     });
 
@@ -364,7 +375,7 @@ function showQuestion() {
 function selectAnswer(answer) {
 
 
-    /* 함정 */
+    /* 함정 선택 */
 
     if (answer.trap === true) {
 
@@ -407,7 +418,7 @@ function selectAnswer(answer) {
 
 
 /* =====================================================
-   함정 → 다시 선택
+   함정 → 다시 질문
 ===================================================== */
 
 retryButton.addEventListener("click", () => {
@@ -433,12 +444,14 @@ letterButton.addEventListener("click", () => {
 
 
 /* =====================================================
-   편지 → 선물 페이지
+   편지 → 선물
 ===================================================== */
 
 nextGiftButton.addEventListener("click", () => {
 
     showScreen(screens.gift);
+
+    resetGiftPage();
 
     startGiftAnimation();
 
@@ -446,49 +459,69 @@ nextGiftButton.addEventListener("click", () => {
 
 
 /* =====================================================
-   선물 애니메이션 시작
+   선물 페이지 초기화
 ===================================================== */
 
-function startGiftAnimation() {
-
-    /* 초기 상태 */
+function resetGiftPage() {
 
     giftPreview.style.opacity = "1";
 
     giftBoxes.style.opacity = "0";
+
+    giftBoxes.style.pointerEvents = "none";
+
+    giftBoxes.classList.remove("shuffle");
 
     giftSelectText.classList.remove("show");
 
     giftResult.classList.remove("show");
 
 
+    giftBoxesElements.forEach(box => {
+
+        box.style.pointerEvents = "none";
+
+        box.style.transform = "";
+
+    });
+
+}
+
+
+/* =====================================================
+   선물 연출
+===================================================== */
+
+function startGiftAnimation() {
+
+
     /*
         1단계
-        선물 사진 보여주기
+        선물 사진 등장
     */
 
     setTimeout(() => {
 
-        giftPreview
-            .querySelectorAll(".gift-photo")
-            .forEach((photo, index) => {
+        const photos =
+            document.querySelectorAll(".gift-photo");
 
-                setTimeout(() => {
 
-                    photo.style.transform =
-                        "translateY(0) scale(1)";
+        photos.forEach(photo => {
 
-                }, index * 150);
+            photo.style.opacity = "1";
 
-            });
+            photo.style.transform =
+                "translateY(0) scale(1)";
+
+        });
 
     }, 300);
 
 
     /*
         2단계
-        사진이 사라지고
-        선물상자가 나타남
+        선물 사진 사라짐
+        상자 등장
     */
 
     setTimeout(() => {
@@ -514,6 +547,7 @@ function startGiftAnimation() {
 
     /*
         4단계
+        섞기 종료
         선택 가능
     */
 
@@ -521,7 +555,16 @@ function startGiftAnimation() {
 
         giftBoxes.classList.remove("shuffle");
 
+        giftBoxes.style.pointerEvents = "auto";
+
         giftSelectText.classList.add("show");
+
+
+        giftBoxesElements.forEach(box => {
+
+            box.style.pointerEvents = "auto";
+
+        });
 
     }, 4400);
 
@@ -536,7 +579,11 @@ giftBoxesElements.forEach(box => {
 
     box.addEventListener("click", () => {
 
-        /* 아직 선택할 수 없는 상태라면 무시 */
+
+        /*
+            아직 선택 시간이 아니면
+            아무 일도 하지 않음
+        */
 
         if (
             !giftSelectText.classList.contains("show")
@@ -560,8 +607,38 @@ giftBoxesElements.forEach(box => {
 
 function revealRandomGift() {
 
+
     /*
-        0, 1, 2 중 하나를 랜덤으로 선택
+        중복 클릭 방지
+    */
+
+    giftBoxesElements.forEach(box => {
+
+        box.style.pointerEvents = "none";
+
+    });
+
+
+    giftSelectText.classList.remove("show");
+
+
+    /*
+        ==========================================
+        여기서 선택 화면을 완전히 숨김
+        ==========================================
+    */
+
+    giftBoxes.style.opacity = "0";
+
+    giftBoxes.style.pointerEvents = "none";
+
+    giftPreview.style.opacity = "0";
+
+
+    /*
+        랜덤으로 선물 하나 선택
+
+        0 / 1 / 2 중 하나
     */
 
     const randomIndex =
@@ -575,23 +652,7 @@ function revealRandomGift() {
 
 
     /*
-        선택한 상자 강조
-    */
-
-    giftBoxesElements.forEach(box => {
-
-        box.style.pointerEvents = "none";
-
-    });
-
-
-    giftSelectText.classList.remove("show");
-
-    giftBoxes.style.opacity = "0";
-
-
-    /*
-        결과 이미지 설정
+        결과 이미지 변경
     */
 
     resultGiftImage.src =
@@ -599,13 +660,15 @@ function revealRandomGift() {
 
 
     /*
-        결과 화면 표시
+        ==========================================
+        결과 화면으로 완전히 전환
+        ==========================================
     */
 
     setTimeout(() => {
 
         giftResult.classList.add("show");
 
-    }, 500);
+    }, 250);
 
 }
