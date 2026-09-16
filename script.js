@@ -673,4 +673,35 @@ function revealRandomGift() {
 
     }, 250);
 
+   /* ==========================================
+   지호 사진 움짤 효과
+========================================== */
+   
+   const jihhoPhoto =
+       document.getElementById("jihho-photo");
+   
+   
+   let jihhoPhotoToggle = false;
+   
+   
+   setInterval(() => {
+   
+       jihhoPhotoToggle =
+           !jihhoPhotoToggle;
+   
+   
+       if (jihhoPhotoToggle) {
+   
+           jihhoPhoto.src =
+               "jihho2.png";
+   
+       } else {
+   
+           jihhoPhoto.src =
+               "jihho1.png";
+   
+       }
+   
+   }, 500);
+
 }
