@@ -141,7 +141,7 @@ const questions = [
 /* =====================================================
    선물 데이터
 
-   사진 파일 이름을 바꾸고 싶다면
+   사진 이름을 바꾸고 싶다면
    여기만 수정하면 됨.
 ===================================================== */
 
@@ -272,6 +272,55 @@ const giftBoxesElements =
 
 
 /* =====================================================
+   지호 사진
+===================================================== */
+
+const jihhoPhoto =
+    document.getElementById("jihho-photo");
+
+
+let jihhoPhotoToggle = false;
+
+
+/*
+    0.5초마다 사진을 교체한다.
+
+    jihho1.png
+        ↓
+    jihho2.png
+        ↓
+    jihho1.png
+        ↓
+    반복
+*/
+
+setInterval(() => {
+
+    if (!jihhoPhoto) {
+        return;
+    }
+
+
+    jihhoPhotoToggle =
+        !jihhoPhotoToggle;
+
+
+    if (jihhoPhotoToggle) {
+
+        jihhoPhoto.src =
+            "jihho2.png";
+
+    } else {
+
+        jihhoPhoto.src =
+            "jihho1.png";
+
+    }
+
+}, 500);
+
+
+/* =====================================================
    화면 전환
 ===================================================== */
 
@@ -377,7 +426,10 @@ function showQuestion() {
 function selectAnswer(answer) {
 
 
-    /* 함정 선택 */
+    /*
+        함정 선택지를 선택하면
+        테스트를 잠시 멈추고 함정 화면으로 이동
+    */
 
     if (answer.trap === true) {
 
@@ -388,7 +440,10 @@ function selectAnswer(answer) {
     }
 
 
-    /* 마지막 질문 */
+    /*
+        마지막 질문이라면
+        바로 결과로 가지 않고 로딩 화면을 보여줌
+    */
 
     if (
         currentQuestion ===
@@ -410,7 +465,10 @@ function selectAnswer(answer) {
     }
 
 
-    /* 다음 질문 */
+    /*
+        아직 질문이 남았다면
+        다음 질문으로 이동
+    */
 
     currentQuestion++;
 
@@ -499,7 +557,7 @@ function startGiftAnimation() {
 
     /*
         1단계
-        선물 사진 등장
+        선물 사진이 보이는 시간
     */
 
     setTimeout(() => {
@@ -522,8 +580,8 @@ function startGiftAnimation() {
 
     /*
         2단계
-        선물 사진 사라짐
-        상자 등장
+        선물 사진이 사라지고
+        선물상자가 나타남
     */
 
     setTimeout(() => {
@@ -537,7 +595,7 @@ function startGiftAnimation() {
 
     /*
         3단계
-        상자 섞기
+        선물상자를 섞음
     */
 
     setTimeout(() => {
@@ -549,7 +607,7 @@ function startGiftAnimation() {
 
     /*
         4단계
-        섞기 종료
+        섞기가 끝나고
         선택 가능
     */
 
@@ -583,8 +641,8 @@ giftBoxesElements.forEach(box => {
 
 
         /*
-            아직 선택 시간이 아니면
-            아무 일도 하지 않음
+            선택 가능 상태가 아니면
+            아무것도 하지 않음
         */
 
         if (
@@ -625,9 +683,7 @@ function revealRandomGift() {
 
 
     /*
-        ==========================================
-        여기서 선택 화면을 완전히 숨김
-        ==========================================
+        선택 화면의 요소들을 완전히 숨김
     */
 
     giftBoxes.style.opacity = "0";
@@ -638,9 +694,7 @@ function revealRandomGift() {
 
 
     /*
-        랜덤으로 선물 하나 선택
-
-        0 / 1 / 2 중 하나
+        0 / 1 / 2 중 하나를 랜덤 선택
     */
 
     const randomIndex =
@@ -654,7 +708,7 @@ function revealRandomGift() {
 
 
     /*
-        결과 이미지 변경
+        당첨된 선물 이미지 설정
     */
 
     resultGiftImage.src =
@@ -662,9 +716,8 @@ function revealRandomGift() {
 
 
     /*
-        ==========================================
-        결과 화면으로 완전히 전환
-        ==========================================
+        잠깐의 전환 후
+        당첨 화면을 완전히 표시
     */
 
     setTimeout(() => {
@@ -672,36 +725,5 @@ function revealRandomGift() {
         giftResult.classList.add("show");
 
     }, 250);
-
-   /* ==========================================
-   지호 사진 움짤 효과
-========================================== */
-   
-   const jihhoPhoto =
-       document.getElementById("jihho-photo");
-   
-   
-   let jihhoPhotoToggle = false;
-   
-   
-   setInterval(() => {
-   
-       jihhoPhotoToggle =
-           !jihhoPhotoToggle;
-   
-   
-       if (jihhoPhotoToggle) {
-   
-           jihhoPhoto.src =
-               "jihho2.png";
-   
-       } else {
-   
-           jihhoPhoto.src =
-               "jihho1.png";
-   
-       }
-   
-   }, 500);
 
 }
