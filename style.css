@@ -1,17 +1,15 @@
-/* ==========================================
-   기본 설정
-========================================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
 html {
     min-height: 100%;
     background: #f5eee7;
 }
+
 
 body {
     min-height: 100vh;
@@ -30,14 +28,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+
 button {
     font-family: inherit;
 }
 
-
-/* ==========================================
-   전체 앱
-========================================== */
 
 .app {
     position: relative;
@@ -56,9 +51,9 @@ button {
 }
 
 
-/* ==========================================
+/* =========================
    화면
-========================================== */
+========================= */
 
 .screen {
     position: absolute;
@@ -78,6 +73,7 @@ button {
         calc(32px + env(safe-area-inset-bottom));
 }
 
+
 .screen.active {
     display: flex;
 
@@ -90,32 +86,28 @@ button {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(12px);
+        transform: translateY(12px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
 }
 
 
-/* ==========================================
-   공통 텍스트
-========================================== */
+/* =========================
+   공통
+========================= */
 
 .eyebrow {
-
     margin-bottom: 15px;
 
     color: #b58d86;
 
     font-size: 10px;
+
     font-weight: 700;
 
     letter-spacing: 2.5px;
@@ -123,7 +115,6 @@ button {
 
 
 .main-button {
-
     width: 100%;
 
     padding: 17px 20px;
@@ -134,9 +125,10 @@ button {
 
     background: #c99092;
 
-    color: #ffffff;
+    color: white;
 
     font-size: 14px;
+
     font-weight: 700;
 
     box-shadow:
@@ -145,30 +137,21 @@ button {
     cursor: pointer;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.2s ease;
 }
 
 
 .main-button:active {
-
-    transform:
-        scale(0.97);
-
-    box-shadow:
-        none;
+    transform: scale(0.97);
 }
 
 
-/* ==========================================
+/* =========================
    시작 화면
-========================================== */
+========================= */
 
 #start-screen {
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -176,15 +159,12 @@ button {
 
 
 .start-content {
-
     width: 100%;
-
     max-width: 330px;
 }
 
 
 .start-content h1 {
-
     color: #4d4039;
 
     font-size: 29px;
@@ -198,7 +178,6 @@ button {
 
 
 .intro {
-
     margin-top: 20px;
 
     color: #8b7b73;
@@ -210,17 +189,15 @@ button {
 
 
 .start-content .main-button {
-
     margin-top: 34px;
 }
 
 
-/* ==========================================
-   떠다니는 하트
-========================================== */
+/* =========================
+   하트
+========================= */
 
 .floating-heart {
-
     position: absolute;
 
     color: #d3a4a3;
@@ -233,9 +210,7 @@ button {
 
 
 .heart-1 {
-
     top: 19%;
-
     left: 12%;
 
     font-size: 27px;
@@ -243,9 +218,7 @@ button {
 
 
 .heart-2 {
-
     right: 13%;
-
     bottom: 22%;
 
     font-size: 19px;
@@ -258,24 +231,21 @@ button {
 
     0%,
     100% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(-8px);
+        transform: translateY(-8px);
     }
 
 }
 
 
-/* ==========================================
-   질문 화면
-========================================== */
+/* =========================
+   질문
+========================= */
 
 #quiz-screen {
-
     flex-direction: column;
 
     padding-top:
@@ -284,13 +254,11 @@ button {
 
 
 .quiz-top {
-
     width: 100%;
 }
 
 
 .question-info {
-
     display: flex;
 
     justify-content: space-between;
@@ -310,13 +278,11 @@ button {
 
 
 #question-count {
-
     color: #a9968d;
 }
 
 
 .progress-track {
-
     width: 100%;
 
     height: 4px;
@@ -330,7 +296,6 @@ button {
 
 
 .progress {
-
     width: 20%;
 
     height: 100%;
@@ -345,7 +310,6 @@ button {
 
 
 .quiz-content {
-
     display: flex;
 
     flex: 1;
@@ -359,7 +323,6 @@ button {
 
 
 .quiz-content h2 {
-
     margin-bottom: 31px;
 
     color: #4d4039;
@@ -374,12 +337,7 @@ button {
 }
 
 
-/* ==========================================
-   선택지
-========================================== */
-
 .answers {
-
     display: flex;
 
     flex-direction: column;
@@ -389,12 +347,12 @@ button {
 
 
 .answer-button {
-
     width: 100%;
 
     padding: 17px 18px;
 
-    border: 1px solid #e3d6ce;
+    border:
+        1px solid #e3d6ce;
 
     border-radius: 17px;
 
@@ -412,35 +370,20 @@ button {
     cursor: pointer;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+        transform 0.2s ease;
 }
 
 
 .answer-button:active {
-
-    transform:
-        scale(0.98);
-
-    background:
-        #fff9f5;
+    transform: scale(0.98);
 }
 
 
-.answer-button:hover {
-
-    border-color:
-        #cfa5a2;
-}
-
-
-/* ==========================================
-   함정 화면
-========================================== */
+/* =========================
+   함정
+========================= */
 
 #trap-screen {
-
     align-items: center;
 
     justify-content: center;
@@ -450,7 +393,6 @@ button {
 
 
 .trap-content {
-
     width: 100%;
 
     max-width: 330px;
@@ -458,7 +400,6 @@ button {
 
 
 .trap-circle {
-
     display: flex;
 
     align-items: center;
@@ -489,32 +430,26 @@ button {
 
     0%,
     100% {
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 
     50% {
-        transform:
-            scale(1.07);
+        transform: scale(1.07);
     }
 
 }
 
 
 .trap-content h2 {
-
     color: #4d4039;
 
     font-size: 25px;
 
     line-height: 1.5;
-
-    letter-spacing: -1px;
 }
 
 
 .trap-description {
-
     margin:
         18px 0 31px;
 
@@ -526,12 +461,135 @@ button {
 }
 
 
-/* ==========================================
-   결과 화면
-========================================== */
+/* =========================
+   로딩
+========================= */
+
+#loading-screen {
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.loading-content {
+    width: 100%;
+
+    max-width: 330px;
+}
+
+
+.loading-heart {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 72px;
+
+    height: 72px;
+
+    margin:
+        0 auto 27px;
+
+    border-radius: 50%;
+
+    background: #ead8d3;
+
+    color: #b77e7e;
+
+    font-size: 30px;
+
+    animation:
+        loadingHeartbeat 1.2s ease-in-out infinite;
+}
+
+
+@keyframes loadingHeartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+.loading-content h2 {
+    color: #4d4039;
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+
+.loading-dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 27px;
+}
+
+
+.loading-dots span {
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #c99092;
+
+    animation:
+        loadingDot 1.2s ease-in-out infinite;
+}
+
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+@keyframes loadingDot {
+
+    0%,
+    60%,
+    100% {
+        opacity: 0.3;
+
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+
+        transform: translateY(-5px);
+    }
+
+}
+
+
+/* =========================
+   결과
+========================= */
 
 #result-screen {
-
     align-items: center;
 
     justify-content: center;
@@ -543,7 +601,6 @@ button {
 
 
 .result-content {
-
     width: 100%;
 
     max-width: 330px;
@@ -551,7 +608,6 @@ button {
 
 
 .result-title {
-
     color: #6f5e56;
 
     font-size: 16px;
@@ -561,7 +617,6 @@ button {
 
 
 .result-name {
-
     margin-top: 4px;
 
     color: #b8797d;
@@ -569,13 +624,10 @@ button {
     font-size: 32px;
 
     line-height: 1.3;
-
-    letter-spacing: -1.5px;
 }
 
 
 .result-name span {
-
     margin-left: 3px;
 
     color: #6f5e56;
@@ -586,12 +638,7 @@ button {
 }
 
 
-/* ==========================================
-   사진 자리
-========================================== */
-
 .photo-placeholder {
-
     display: flex;
 
     align-items: center;
@@ -617,7 +664,6 @@ button {
 
 
 .photo-placeholder p {
-
     margin-top: 8px;
 
     font-size: 11px;
@@ -625,7 +671,6 @@ button {
 
 
 .photo-icon {
-
     display: block;
 
     color: #bd8c8d;
@@ -635,7 +680,6 @@ button {
 
 
 .result-message {
-
     margin-bottom: 25px;
 
     color: #6f5e56;
@@ -646,12 +690,11 @@ button {
 }
 
 
-/* ==========================================
+/* =========================
    편지
-========================================== */
+========================= */
 
 .letter-screen {
-
     display: none;
 
     overflow-y: auto;
@@ -665,13 +708,11 @@ button {
 
 
 .letter-screen.active {
-
     display: block;
 }
 
 
 .letter-container {
-
     width: 100%;
 
     max-width: 350px;
@@ -681,7 +722,6 @@ button {
 
 
 .letter-container h1 {
-
     margin-bottom: 45px;
 
     color: #4d4039;
@@ -689,25 +729,19 @@ button {
     font-size: 31px;
 
     line-height: 1.4;
-
-    letter-spacing: -1.5px;
 }
 
 
 .letter-text {
-
     color: #665750;
 
     font-size: 15px;
 
     line-height: 2.05;
-
-    letter-spacing: -0.2px;
 }
 
 
 .letter-text p {
-
     margin-bottom: 35px;
 
     opacity: 0;
@@ -721,31 +755,26 @@ button {
 
 
 .letter-text p:nth-child(1) {
-
     animation-delay: 0.25s;
 }
 
 
 .letter-text p:nth-child(2) {
-
     animation-delay: 0.7s;
 }
 
 
 .letter-text p:nth-child(3) {
-
     animation-delay: 1.15s;
 }
 
 
 .letter-text p:nth-child(4) {
-
     animation-delay: 1.6s;
 }
 
 
 .letter-text p:nth-child(5) {
-
     animation-delay: 2.05s;
 }
 
@@ -753,7 +782,6 @@ button {
 @keyframes letterAppear {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -761,7 +789,6 @@ button {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -772,7 +799,6 @@ button {
 
 
 .letter-heart {
-
     color: #c99092;
 
     font-size: 22px;
@@ -781,10 +807,14 @@ button {
 }
 
 
+.letter-next-button {
+    margin-top: 5px;
+
+    margin-bottom: 65px;
+}
+
+
 .letter-end {
-
-    margin-top: 75px;
-
     padding-top: 24px;
 
     border-top:
@@ -797,13 +827,11 @@ button {
 
 
 .letter-end span {
-
     font-size: 12px;
 }
 
 
 .letter-end strong {
-
     display: block;
 
     margin-top: 5px;
@@ -814,14 +842,435 @@ button {
 }
 
 
-/* ==========================================
+/* =========================
+   선물 페이지
+========================= */
+
+.gift-screen {
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+
+.gift-container {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 370px;
+
+    min-height: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* 질문 */
+
+.gift-question {
+    position: absolute;
+
+    top: 8%;
+
+    width: 100%;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+.gift-question h1 {
+    color: #4d4039;
+
+    font-size: 24px;
+
+    line-height: 1.55;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================
+   선물 사진
+========================= */
+
+.gift-preview {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    margin-top: 90px;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.gift-photo {
+    width: 102px;
+
+    height: 125px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #eadfd7;
+
+    box-shadow:
+        0 8px 20px rgba(100, 70, 60, 0.08);
+
+    transition:
+        transform 1s ease,
+        opacity 0.5s ease;
+}
+
+
+.gift-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   선물 상자
+========================= */
+
+.gift-boxes {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    width: 100%;
+
+    margin-top: 50px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.6s ease;
+}
+
+
+.gift-box {
+    position: relative;
+
+    width: 78px;
+
+    height: 72px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.gift-box:hover {
+    transform: translateY(-5px);
+}
+
+
+.box-body {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 7px;
+
+    width: 64px;
+
+    height: 48px;
+
+    border-radius: 5px;
+
+    background: #d5a19d;
+
+    box-shadow:
+        0 7px 12px rgba(120, 80, 75, 0.12);
+}
+
+
+.box-lid {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 10px;
+
+    left: 0;
+
+    width: 78px;
+
+    height: 22px;
+
+    border-radius: 5px;
+
+    background: #c88f91;
+
+    font-size: 21px;
+
+    line-height: 22px;
+
+    text-align: center;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================
+   선택 문구
+========================= */
+
+.gift-select-text {
+    margin-top: 28px;
+
+    color: #a18c83;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.gift-select-text.show {
+    opacity: 1;
+}
+
+
+/* =========================
+   섞기 애니메이션
+========================= */
+
+.gift-boxes.shuffle .gift-box:nth-child(1) {
+    animation:
+        shuffleLeft 1.8s ease-in-out;
+}
+
+
+.gift-boxes.shuffle .gift-box:nth-child(2) {
+    animation:
+        shuffleCenter 1.8s ease-in-out;
+}
+
+
+.gift-boxes.shuffle .gift-box:nth-child(3) {
+    animation:
+        shuffleRight 1.8s ease-in-out;
+}
+
+
+@keyframes shuffleLeft {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(100px);
+    }
+
+    50% {
+        transform: translateX(-100px);
+    }
+
+    75% {
+        transform: translateX(60px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes shuffleCenter {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-100px);
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+
+    75% {
+        transform: translateX(-60px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+@keyframes shuffleRight {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-100px);
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+
+    75% {
+        transform: translateX(-60px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================
+   선물 결과
+========================= */
+
+.gift-result {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        scale(0.92);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+
+.gift-result.show {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        scale(1);
+}
+
+
+.gift-result h2 {
+    color: #4d4039;
+
+    font-size: 21px;
+
+    margin-bottom: 25px;
+}
+
+
+.gift-result-image {
+    width: 245px;
+
+    height: 280px;
+
+    overflow: hidden;
+
+    margin-bottom: 27px;
+
+    border-radius: 23px;
+
+    background: #eadfd7;
+
+    box-shadow:
+        0 15px 35px rgba(100, 70, 60, 0.12);
+}
+
+
+.gift-result-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.gift-result-message {
+    margin-bottom: 25px;
+
+    color: #6f5e56;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.gift-result .main-button {
+    width: 55px;
+
+    height: 55px;
+
+    padding: 0;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
    작은 화면
-========================================== */
+========================= */
 
 @media (max-width: 360px) {
 
     .screen {
-
         padding-left: 20px;
 
         padding-right: 20px;
@@ -829,131 +1278,29 @@ button {
 
 
     .start-content h1 {
-
         font-size: 26px;
     }
 
 
     .quiz-content h2 {
-
         font-size: 21px;
     }
 
 
     .result-name {
-
         font-size: 29px;
     }
 
-}
 
+    .gift-photo {
+        width: 88px;
 
-/* ==========================================
-   로딩 화면
-========================================== */
-
-#loading-screen {
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-}
-
-.loading-content {
-    width: 100%;
-    max-width: 330px;
-}
-
-.loading-heart {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 72px;
-    height: 72px;
-
-    margin: 0 auto 27px;
-
-    border-radius: 50%;
-
-    background: #ead8d3;
-
-    color: #b77e7e;
-
-    font-size: 30px;
-
-    animation:
-        loadingHeartbeat 1.2s ease-in-out infinite;
-}
-
-@keyframes loadingHeartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
+        height: 112px;
     }
 
-    50% {
-        transform: scale(1.12);
-    }
 
-}
-
-.loading-content h2 {
-    color: #4d4039;
-
-    font-size: 22px;
-
-    line-height: 1.6;
-
-    letter-spacing: -1px;
-}
-
-.loading-dots {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 6px;
-
-    margin-top: 27px;
-}
-
-.loading-dots span {
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: #c99092;
-
-    animation:
-        loadingDot 1.2s ease-in-out infinite;
-}
-
-.loading-dots span:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.loading-dots span:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-@keyframes loadingDot {
-
-    0%,
-    60%,
-    100% {
-        opacity: 0.3;
-
-        transform: translateY(0);
-    }
-
-    30% {
-        opacity: 1;
-
-        transform: translateY(-5px);
+    .gift-boxes {
+        gap: 14px;
     }
 
 }
