@@ -704,7 +704,17 @@ button {
 }
 
 
-.photo-placeholder {
+/* ==========================================
+   지호 사진
+========================================== */
+
+.result-photo {
+
+    width: 130px;
+
+    height: 170px;
+
+    margin: 27px auto;
 
     display: flex;
 
@@ -712,39 +722,33 @@ button {
 
     justify-content: center;
 
-    width: 180px;
+    overflow: hidden;
 
-    height: 210px;
-
-    margin:
-        27px auto;
-
-    border:
-        1px dashed #cdbab1;
-
-    border-radius: 23px;
+    border-radius: 20px;
 
     background: #eee4dc;
 
-    color: #a39188;
+    box-shadow:
+        0 12px 30px
+        rgba(100, 70, 60, 0.12);
 }
 
 
-.photo-placeholder p {
-
-    margin-top: 8px;
-
-    font-size: 11px;
-}
-
-
-.photo-icon {
+.result-photo img {
 
     display: block;
 
-    color: #bd8c8d;
+    width: 100%;
 
-    font-size: 27px;
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    max-width: 100%;
+
+    max-height: 100%;
 }
 
 
@@ -1262,8 +1266,6 @@ button {
 
 /* ==========================================
    당첨 결과
-
-   이전 화면과 완전히 분리해서 표시
 ========================================== */
 
 .gift-result {
@@ -1448,6 +1450,14 @@ button {
     }
 
 
+    .result-photo {
+
+        width: 120px;
+
+        height: 155px;
+    }
+
+
     .gift-photo {
 
         width: 88px;
@@ -1469,41 +1479,4 @@ button {
         gap: 8px;
     }
 
-/* ==========================================
-   지호 사진
-========================================== */
-
-     .result-photo {
-       width: 160px;
-   
-       margin: 27px auto;
-   
-       display: flex;
-   
-       align-items: center;
-       justify-content: center;
-   
-       border-radius: 23px;
-   
-       overflow: hidden;
-   
-       background: #eee4dc;
-   
-       box-shadow:
-           0 12px 30px
-           rgba(100, 70, 60, 0.12);
-   }
-   
-   
-   .result-photo img {
-       display: block;
-   
-       width: 100%;
-   
-       height: auto;
-   
-       max-height: 240px;
-   
-       object-fit: contain;
-   }
 }
