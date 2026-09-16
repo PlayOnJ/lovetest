@@ -1,13 +1,5 @@
 /* =====================================================
    질문 설정
-
-   질문이나 선택지를 바꾸려면 이 부분을 수정하세요.
-
-   trap: true
-   → 함정 선택지
-
-   trap이 없는 선택지
-   → 정상 선택지
 ===================================================== */
 
 const questions = [
@@ -85,6 +77,30 @@ const questions = [
 
 
     {
+        question: "좋아하는 사람과 가장 해보고 싶은 것은?",
+
+        answers: [
+            {
+                text: "같이 맛있는 음식 먹기"
+            },
+
+            {
+                text: "예쁜 곳에 놀러 가기"
+            },
+
+            {
+                text: "아무것도 안 하고 같이 있기"
+            },
+
+            {
+                text: "각자 알아서 살기",
+                trap: true
+            }
+        ]
+    },
+
+
+    {
         question: "좋은 연애에서 가장 중요하다고 생각하는 것은?",
 
         answers: [
@@ -105,39 +121,40 @@ const questions = [
                 trap: true
             }
         ]
-    },
-
-
-    {
-        question: "가장 완벽한 이상형의 키는?",
-
-        answers: [
-            {
-                text: "150" ,
-                trap: true
-            },
-
-            {
-                text: "160" ,
-                trap: true
-            },
-
-            {
-                text: "164.9"
-            },
-
-            {
-                text: "170",
-                trap: true
-            }
-        ]
     }
 
 ];
 
 
 /* =====================================================
-   현재 질문 번호
+   선물 설정
+
+   나중에 사진 파일 이름만 맞춰주세요.
+
+   gift1.jpg
+   gift2.jpg
+   gift3.jpg
+===================================================== */
+
+const gifts = [
+
+    {
+        image: "gift1.jpg"
+    },
+
+    {
+        image: "gift2.jpg"
+    },
+
+    {
+        image: "gift3.jpg"
+    }
+
+];
+
+
+/* =====================================================
+   현재 질문
 ===================================================== */
 
 let currentQuestion = 0;
@@ -165,7 +182,10 @@ const screens = {
         document.getElementById("result-screen"),
 
     letter:
-        document.getElementById("letter-screen")
+        document.getElementById("letter-screen"),
+
+    gift:
+        document.getElementById("gift-screen")
 
 };
 
@@ -177,11 +197,17 @@ const screens = {
 const startButton =
     document.getElementById("start-button");
 
+
 const retryButton =
     document.getElementById("retry-button");
 
+
 const letterButton =
     document.getElementById("letter-button");
+
+
+const nextGiftButton =
+    document.getElementById("next-gift-button");
 
 
 /* =====================================================
@@ -191,17 +217,49 @@ const letterButton =
 const questionNumber =
     document.getElementById("question-number");
 
+
 const questionCount =
     document.getElementById("question-count");
+
 
 const questionText =
     document.getElementById("question-text");
 
+
 const answersContainer =
     document.getElementById("answers");
 
+
 const progress =
     document.getElementById("progress");
+
+
+/* =====================================================
+   선물 요소
+===================================================== */
+
+const giftPreview =
+    document.getElementById("gift-preview");
+
+
+const giftBoxes =
+    document.getElementById("gift-boxes");
+
+
+const giftSelectText =
+    document.getElementById("gift-select-text");
+
+
+const giftResult =
+    document.getElementById("gift-result");
+
+
+const resultGiftImage =
+    document.getElementById("result-gift-image");
+
+
+const giftBoxesElements =
+    document.querySelectorAll(".gift-box");
 
 
 /* =====================================================
@@ -215,6 +273,7 @@ function showScreen(screen) {
         item.classList.remove("active");
 
     });
+
 
     screen.classList.add("active");
 
@@ -259,7 +318,8 @@ function showQuestion() {
 
 
     const percentage =
-        ((currentQuestion + 1) / questions.length) * 100;
+        ((currentQuestion + 1) /
+            questions.length) * 100;
 
 
     progress.style.width =
@@ -304,7 +364,7 @@ function showQuestion() {
 function selectAnswer(answer) {
 
 
-    /* 함정 선택 */
+    /* 함정 */
 
     if (answer.trap === true) {
 
@@ -317,22 +377,24 @@ function selectAnswer(answer) {
 
     /* 마지막 질문 */
 
-   if (
-       currentQuestion ===
-       questions.length - 1
-   ) {
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
 
-       showScreen(screens.loading);
+        showScreen(screens.loading);
 
-       setTimeout(() => {
 
-           showScreen(screens.result);
+        setTimeout(() => {
 
-       }, 2500);
+            showScreen(screens.result);
 
-       return;
+        }, 2500);
 
-}
+
+        return;
+
+    }
 
 
     /* 다음 질문 */
@@ -368,3 +430,182 @@ letterButton.addEventListener("click", () => {
     window.scrollTo(0, 0);
 
 });
+
+
+/* =====================================================
+   편지 → 선물 페이지
+===================================================== */
+
+nextGiftButton.addEventListener("click", () => {
+
+    showScreen(screens.gift);
+
+    startGiftAnimation();
+
+});
+
+
+/* =====================================================
+   선물 애니메이션 시작
+===================================================== */
+
+function startGiftAnimation() {
+
+    /* 초기 상태 */
+
+    giftPreview.style.opacity = "1";
+
+    giftBoxes.style.opacity = "0";
+
+    giftSelectText.classList.remove("show");
+
+    giftResult.classList.remove("show");
+
+
+    /*
+        1단계
+        선물 사진 보여주기
+    */
+
+    setTimeout(() => {
+
+        giftPreview
+            .querySelectorAll(".gift-photo")
+            .forEach((photo, index) => {
+
+                setTimeout(() => {
+
+                    photo.style.transform =
+                        "translateY(0) scale(1)";
+
+                }, index * 150);
+
+            });
+
+    }, 300);
+
+
+    /*
+        2단계
+        사진이 사라지고
+        선물상자가 나타남
+    */
+
+    setTimeout(() => {
+
+        giftPreview.style.opacity = "0";
+
+        giftBoxes.style.opacity = "1";
+
+    }, 1800);
+
+
+    /*
+        3단계
+        상자 섞기
+    */
+
+    setTimeout(() => {
+
+        giftBoxes.classList.add("shuffle");
+
+    }, 2400);
+
+
+    /*
+        4단계
+        선택 가능
+    */
+
+    setTimeout(() => {
+
+        giftBoxes.classList.remove("shuffle");
+
+        giftSelectText.classList.add("show");
+
+    }, 4400);
+
+}
+
+
+/* =====================================================
+   선물상자 선택
+===================================================== */
+
+giftBoxesElements.forEach(box => {
+
+    box.addEventListener("click", () => {
+
+        /* 아직 선택할 수 없는 상태라면 무시 */
+
+        if (
+            !giftSelectText.classList.contains("show")
+        ) {
+
+            return;
+
+        }
+
+
+        revealRandomGift();
+
+    });
+
+});
+
+
+/* =====================================================
+   랜덤 선물 공개
+===================================================== */
+
+function revealRandomGift() {
+
+    /*
+        0, 1, 2 중 하나를 랜덤으로 선택
+    */
+
+    const randomIndex =
+        Math.floor(
+            Math.random() * gifts.length
+        );
+
+
+    const selectedGift =
+        gifts[randomIndex];
+
+
+    /*
+        선택한 상자 강조
+    */
+
+    giftBoxesElements.forEach(box => {
+
+        box.style.pointerEvents = "none";
+
+    });
+
+
+    giftSelectText.classList.remove("show");
+
+    giftBoxes.style.opacity = "0";
+
+
+    /*
+        결과 이미지 설정
+    */
+
+    resultGiftImage.src =
+        selectedGift.image;
+
+
+    /*
+        결과 화면 표시
+    */
+
+    setTimeout(() => {
+
+        giftResult.classList.add("show");
+
+    }, 500);
+
+}
